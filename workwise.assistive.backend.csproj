@@ -1,0 +1,50 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="auth.mrds.net\**" />
+    <Compile Remove="db.ss.mgmt.mrds.net\**" />
+    <Compile Remove="utils.mrds.net\**" />
+    <Content Remove="auth.mrds.net\**" />
+    <Content Remove="db.ss.mgmt.mrds.net\**" />
+    <Content Remove="utils.mrds.net\**" />
+    <EmbeddedResource Remove="auth.mrds.net\**" />
+    <EmbeddedResource Remove="db.ss.mgmt.mrds.net\**" />
+    <EmbeddedResource Remove="utils.mrds.net\**" />
+    <None Remove="auth.mrds.net\**" />
+    <None Remove="db.ss.mgmt.mrds.net\**" />
+    <None Remove="utils.mrds.net\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Log4Net.AspNetCore" Version="6.1.0" />
+    <PackageReference Include="Scrutor" Version="4.2.2" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="auth.mrds.net\auth.mrds.net.csproj" />
+    <ProjectReference Include="db.ss.mgmt.mrds.net\db.mrds.net.csproj" />
+    <ProjectReference Include="utils.mrds.net\utils.mrds.net.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="log4net.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Repository\" />
+  </ItemGroup>
+
+</Project>
